@@ -2,6 +2,7 @@
 import express, { Application } from 'express';
 import userRoutes from '../routes/user_routes';
 import cors from 'cors';
+import db from '../database/conection';
 
 // Creamos la clase llamada Server
 class Server 
@@ -20,8 +21,18 @@ class Server
         // En caso de no existir o no tener valor, se tomara '3000'
         this.port = process.env.PORT || '3000';
 
+        this.dbConnection();
         this.routes();
         this.middlewares();
+    }
+
+    async dbConnection() {
+        try {
+            await db.authenticate();
+            console.log('Database online');
+        } catch (error: any) {
+            throw new Error( error );
+        }
     }
 
     middlewares() {
