@@ -1,6 +1,6 @@
 // Importamos express y el modulo Application
 import express, { Application } from 'express';
-import userRoutes from '../../routes/user_routes';
+import Routes from '../../routes/index';
 import cors from 'cors';
 import db from '../conection';
 
@@ -11,7 +11,8 @@ class Server
     private app: Application; // Propiedad contendra la aplicacion express
     private port: string; // Propiedad que almacenara el puerto
     private apiPaths = {
-        users: '/api/users'
+        users: '/api/users',
+        posts: '/api/posts'
     }
 
     constructor() {
@@ -52,7 +53,7 @@ class Server
     }
 
     routes(): void {
-        this.app.use(this.apiPaths.users, userRoutes);
+        Routes(this.app);
     }
 
     // Creamos el metodo listen que ejecuta nuestra aplicacion en el puerto 8000

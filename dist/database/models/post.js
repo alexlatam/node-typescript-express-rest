@@ -17,7 +17,12 @@ const Post = conection_1.default.define('Post', {
     user_id: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false
-    }
+    },
+    status: {
+        type: sequelize_1.DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true
+    },
 });
 exports.default = Post;
 //# sourceMappingURL=post.js.map

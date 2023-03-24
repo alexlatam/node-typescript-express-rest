@@ -35,14 +35,14 @@ const User = conection_1.default.define('User', {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: true
     },
+    city_id: {
+        type: sequelize_1.DataTypes.INTEGER,
+        allowNull: true
+    },
     status: {
         type: sequelize_1.DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: true
-    },
-    city_id: {
-        type: sequelize_1.DataTypes.INTEGER,
-        allowNull: true
     },
 });
 exports.default = User;

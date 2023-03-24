@@ -31,14 +31,14 @@ const User = db.define('User', {
         type: DataTypes.INTEGER,
         allowNull: true
     },
+    city_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true
+    },
     status: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         defaultValue: true
-    },
-    city_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true
     },
 });
 

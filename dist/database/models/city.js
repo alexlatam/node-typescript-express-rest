@@ -13,7 +13,12 @@ const City = conection_1.default.define('City', {
     country_id: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false
-    }
+    },
+    status: {
+        type: sequelize_1.DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true
+    },
 });
 exports.default = City;
 //# sourceMappingURL=city.js.map

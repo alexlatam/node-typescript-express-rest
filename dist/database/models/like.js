@@ -13,7 +13,12 @@ const Like = conection_1.default.define('Like', {
     user_id: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false
-    }
+    },
+    status: {
+        type: sequelize_1.DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true
+    },
 });
 exports.default = Like;
 //# sourceMappingURL=like.js.map

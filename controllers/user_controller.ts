@@ -3,9 +3,7 @@ import User from '../database/models/user';
 
 export const getUsers = async (req: Request, res: Response) => {
     const users = await User.findAll({
-        where: {
-            status: true
-        }
+        where: { status: true }
     });
     res.json({users});
 }
@@ -28,9 +26,7 @@ export const createUser = async (req: Request, res: Response) => {
     try {
 
         const existEmail = await User.findOne({
-            where: {
-                email: body.email
-            }
+            where: { email: body.email }
         });
 
         if (existEmail) {

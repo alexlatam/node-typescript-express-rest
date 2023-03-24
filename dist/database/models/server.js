@@ -14,14 +14,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // Importamos express y el modulo Application
 const express_1 = __importDefault(require("express"));
-const user_routes_1 = __importDefault(require("../../routes/user_routes"));
+const index_1 = __importDefault(require("../../routes/index"));
 const cors_1 = __importDefault(require("cors"));
 const conection_1 = __importDefault(require("../conection"));
 // Creamos la clase llamada Server
 class Server {
     constructor() {
         this.apiPaths = {
-            users: '/api/users'
+            users: '/api/users',
+            posts: '/api/posts'
         };
         // Iniciamos express y guardamos en la propiedad app
         this.app = (0, express_1.default)();
@@ -55,7 +56,7 @@ class Server {
         this.app.use(express_1.default.static('public'));
     }
     routes() {
-        this.app.use(this.apiPaths.users, user_routes_1.default);
+        (0, index_1.default)(this.app);
     }
     // Creamos el metodo listen que ejecuta nuestra aplicacion en el puerto 8000
     listen() {

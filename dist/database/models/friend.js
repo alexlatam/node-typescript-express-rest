@@ -13,7 +13,12 @@ const Friend = conection_1.default.define('Friend', {
     user_id2: {
         type: sequelize_1.DataTypes.INTEGER,
         allowNull: false
-    }
+    },
+    status: {
+        type: sequelize_1.DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true
+    },
 });
 exports.default = Friend;
 //# sourceMappingURL=friend.js.map

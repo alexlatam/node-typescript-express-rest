@@ -16,7 +16,9 @@ exports.restoreUser = exports.deleteUser = exports.updateUser = exports.createUs
 const user_1 = __importDefault(require("../database/models/user"));
 const getUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const users = yield user_1.default.findAll({
-        where: { status: true }
+        where: {
+            status: true
+        }
     });
     res.json({ users });
 });
@@ -36,7 +38,9 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     const { body } = req;
     try {
         const existEmail = yield user_1.default.findOne({
-            where: { email: body.email }
+            where: {
+                email: body.email
+            }
         });
         if (existEmail) {
             return res.status(400).json({
@@ -116,4 +120,4 @@ const restoreUser = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.restoreUser = restoreUser;
-//# sourceMappingURL=user_controller.js.map
+//# sourceMappingURL=user_controller%20copy.js.map

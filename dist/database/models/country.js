@@ -9,7 +9,12 @@ const Country = conection_1.default.define('Country', {
     country: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false
-    }
+    },
+    status: {
+        type: sequelize_1.DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: true
+    },
 });
 exports.default = Country;
 //# sourceMappingURL=country.js.map
