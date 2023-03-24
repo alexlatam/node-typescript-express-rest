@@ -6,10 +6,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_1 = require("sequelize");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const db = new sequelize_1.Sequelize(process.env.DB_DATABASE, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
-    host: process.env.DB_HOST,
+const db = new sequelize_1.Sequelize(process.env.DEV_DB_NAME, process.env.DEV_DB_USERNAME, process.env.DEV_DB_PASSWORD, {
+    host: process.env.DEV_DB_HOST,
+    port: process.env.DEV_DB_PORT,
     dialect: process.env.DB_DIALECT,
-    port: process.env.DB_PORT,
     logging: process.env.DB_DEBUG === "true" ? true : false,
 });
 exports.default = db;

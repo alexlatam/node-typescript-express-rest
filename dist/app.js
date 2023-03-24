@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const dotenv_1 = __importDefault(require("dotenv"));
-const server_1 = __importDefault(require("./models/server"));
+const server_1 = __importDefault(require("./database/models/server"));
 // Ejecutamos el metodo config de dotenv. Este metodo carga la configuracion por defecto del paquete
 // Lo cual nos permite leer las variables del archivo .env en nuestra aplicacion.
 dotenv_1.default.config();

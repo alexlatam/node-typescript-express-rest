@@ -1,8 +1,8 @@
 // Importamos express y el modulo Application
 import express, { Application } from 'express';
-import userRoutes from '../routes/user_routes';
+import userRoutes from '../../routes/user_routes';
 import cors from 'cors';
-import db from '../database/conection';
+import db from '../conection';
 
 // Creamos la clase llamada Server
 class Server 
@@ -22,8 +22,8 @@ class Server
         this.port = process.env.PORT || '3000';
 
         this.dbConnection();
-        this.routes();
         this.middlewares();
+        this.routes();
     }
 
     async dbConnection() {
@@ -35,24 +35,28 @@ class Server
         }
     }
 
-    middlewares() {
+    middlewares(): void {
         // CORS 
         this.app.use(cors());
 
         // Definimos el uso de express.json. Lectura del body, ya parseado a JSON 
         this.app.use(express.json());
 
+        // el siguiente middleware hace el parse del cuerpo de la solicitud
+        // cuando el mismo se compone de un form data (application/x-www-form-urlencoded)
+        this.app.use(express.urlencoded({ extended: true }));
+
         // Definimos el directorio publico. La peticion localhost:port apuntara a la carpeta public 
         this.app.use(express.static('public'));
 
     }
 
-    routes() {
+    routes(): void {
         this.app.use(this.apiPaths.users, userRoutes);
     }
 
     // Creamos el metodo listen que ejecuta nuestra aplicacion en el puerto 8000
-    listen() {
+    listen(): void {
         this.app.listen(this.port, () => {
             console.log(`Server running on port ${this.port}`);
         });

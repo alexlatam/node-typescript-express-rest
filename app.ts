@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import Server from './models/server';
+import Server from './database/models/server';
 // Ejecutamos el metodo config de dotenv. Este metodo carga la configuracion por defecto del paquete
 // Lo cual nos permite leer las variables del archivo .env en nuestra aplicacion.
 dotenv.config();
